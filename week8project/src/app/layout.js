@@ -13,9 +13,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Link href="/music">Find your tunes</Link>
-        <Link href="/addsong">Add a song here</Link>
-        <Link href="/music/id">Find your specific song</Link>
+        <nav>
+          <Link href="/music">Find your tunes</Link>
+          <Link href="/music/addsong">Add a song here</Link>
+          <Link href="/music/id">Find your specific song</Link>
+        </nav>
+
         {children}
       </body>
     </html>
