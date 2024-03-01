@@ -10,7 +10,7 @@ export default function AddSong() {
     const year = formData.get("year");
     const genre = formData.get("genre");
     const artist = formData.get("artist");
-    const comment = formData.get("comment");
+    // const comment = formData.get("comment");
 
     let genreResult = await sql`SELECT id FROM genre WHERE genre = ${genre}`;
     let genreId;
@@ -21,7 +21,7 @@ export default function AddSong() {
         await sql`INSERT INTO genre (genre) VALUES (${genre}) RETURNING id`;
       genreId = insertResult.rows[0].id;
     }
-    await sql`INSERT INTO music (title, year, artist, comment, genre_id) VALUES (${title}, ${year}, ${artist}, ${comment}, ${genreId})`;
+    await sql`INSERT INTO music (title, year, artist, genre_id) VALUES (${title}, ${year}, ${artist}, ${genreId})`;
 
     revalidatePath("/music");
     redirect("/music");
