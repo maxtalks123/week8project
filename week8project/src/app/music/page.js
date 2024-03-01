@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
 import "../globals.css";
 import Sortfunction from "./sort/[sort]/page";
+import { Suspense } from "react";
 
 export default async function Music() {
   let music = (
@@ -9,7 +10,9 @@ export default async function Music() {
   return (
     <div>
       <h1>Here is a list of music:</h1>
-      <Sortfunction music={music} />
+      <Suspense>
+        <Sortfunction music={music} />
+      </Suspense>
     </div>
   );
 }
