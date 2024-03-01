@@ -22,9 +22,6 @@ export default function AddSong() {
       genreId = insertResult.rows[0].id;
     }
     await sql`INSERT INTO music (title, year, artist, comment, genre_id) VALUES (${title}, ${year}, ${artist}, ${comment}, ${genreId})`;
-    // const data =
-    //   await sql`SELECT music.id, music.artist, music.year, music.comment, genre.genre FROM music INNER JOIN genre ON music.id = genre.id`;
-    // data.rows;
 
     revalidatePath("/music");
     redirect("/music");

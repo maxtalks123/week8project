@@ -1,4 +1,5 @@
 import { sql } from "@vercel/postgres";
+import "../globals.css";
 
 export default async function Music() {
   let music = (
