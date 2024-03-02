@@ -1,6 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import DeleteButton from "./Delete";
 
 export default function Sortfunction({ music }) {
   const searchParams = useSearchParams();
@@ -47,6 +48,7 @@ export default function Sortfunction({ music }) {
               {" "}
               See all songs with this genre!
             </Link>
+            <DeleteButton id={music.id} />
           </div>
         ))}
       </>
