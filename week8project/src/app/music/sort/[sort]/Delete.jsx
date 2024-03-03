@@ -2,5 +2,12 @@
 import handleDelete from "./handledelete";
 
 export default function DeleteButton({ id }) {
-  return <button onClick={() => handleDelete(id)}>Delete this song</button>;
+  return (
+    <button
+      className="p-1 m-1 border-4 border-black rounded-md  bg-red-500 text-white"
+      onClick={() => handleDelete(id)}
+    >
+      Delete this song
+    </button>
+  );
 }

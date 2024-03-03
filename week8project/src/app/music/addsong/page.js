@@ -21,24 +21,38 @@ export default function AddSong() {
         await sql`INSERT INTO genre (genre) VALUES (${genre}) RETURNING id`;
       genreId = insertResult.rows[0].id;
     }
-    await sql`INSERT INTO music (title, year, artist, comment, genre_id) VALUES (${title}, ${year}, ${artist}, ${comment} ${genreId})`;
+    await sql`INSERT INTO music (title, year, artist, genre_id, comment) VALUES (${title}, ${year}, ${artist}, ${genreId}, ${comment})`;
 
     revalidatePath("/music");
     redirect("/music");
   }
   return (
-    <div>
+    <div className="bg-blue-400 m-2 p-2 flex flex-col items-center">
       <h1>Add your song below</h1>
-      <form action={handleAddSong}>
-        <label>Song title</label>
+      <form
+        action={handleAddSong}
+        className="p-8 w-6/12 flex flex-col justify-center"
+      >
+        <label>
+          <strong>Song title </strong>{" "}
+        </label>
         <input name="title" placeholder="Enter song title" />
-        <label> Year of release</label>
+        <label>
+          {" "}
+          <strong>Year of release </strong>
+        </label>
         <input name="year" placeholder="Enter song release year" />
-        <label>Artist</label>
+        <label>
+          <strong>Artist </strong>
+        </label>
         <input name="artist" placeholder="Enter song artist" />
-        <label>Genre</label>
+        <label>
+          <strong>Genre </strong>
+        </label>
         <input name="genre" placeholder="Enter genre of song" />
-        <label name="comment">Add your comments below</label>
+        <label name="comment">
+          <strong>Add your comments below </strong>
+        </label>
         <textarea
           id="comment"
           name="comment"

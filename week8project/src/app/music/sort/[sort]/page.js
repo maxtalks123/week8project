@@ -38,13 +38,19 @@ export default function Sortfunction({ music }) {
       </div>
       <>
         {music.map((music) => (
-          <div key={music.id} className="p-2 m-2 bg-green-300 rounded border-2">
+          <div
+            key={music.id}
+            className="p-4 m-4 bg-green-300 rounded border-4 border-black w-2/5 inline-flex flex-col items-center"
+          >
             <h2>Song title: {music.title}</h2>
             <h2>Artist: {music.artist}</h2>
             <h2>Year of release: {music.year}</h2>
             <p>Genre: {music.genre}</p>
             <p>Comments: {music.comment}</p>
-            <Link href={`/music/${music.genre}`}>
+            <Link
+              href={`/music/${music.genre}`}
+              className="p-1 m-1 border-4 border-white  bg-black text-white rounded-md"
+            >
               {" "}
               See all songs with this genre!
             </Link>

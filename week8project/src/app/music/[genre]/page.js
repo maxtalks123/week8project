@@ -9,7 +9,10 @@ export default async function Page({ params }) {
     <div>
       <h1> Below are all the songs with the genre: {params.genre}</h1>
       {music.map((music) => (
-        <div key={music.id}>
+        <div
+          key={music.id}
+          className="p-4 m-4 bg-green-300 rounded border-4 border-black w-2/5 inline-flex flex-col items-center"
+        >
           <h2>Song title: {music.title}</h2>
           <h2>Artist: {music.artist}</h2>
           <h2>Year of release: {music.year}</h2>
